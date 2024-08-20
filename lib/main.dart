@@ -58,7 +58,68 @@ class QuizHomePage extends StatelessWidget {
               ),),),
             SizedBox(height: 20,),
             ElevatedButton(
-              onPressed: (){},
+              onPressed: (){
+                // pour cliquez et avoir les informations sur l'informaticien, sur le programmeur
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        content: Container(
+                          height: 250,
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                              //   Icon est une classe
+                                Icon(
+                                  Icons.lightbulb_outlined,
+                                  color: Colors.amber,
+                                  size: 50,
+                                ),
+                                SizedBox(height: 10,),
+                                // texte de titre
+                                Text(
+                              'Info',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),      
+                          ),
+                              SizedBox(height: 10,),
+                              //   information sur le programmeur
+                                Text('Programmeur:\n sylvestreced@gmail.com',
+                                  textAlign: TextAlign.center,
+                                 ),
+                                SizedBox(height: 20,),
+                              //   boutton 
+                                
+                                ElevatedButton(
+                                  onPressed: (){
+                                //   pour fermer la popup
+                                  Navigator.of(context).pop();
+                                },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.red,
+                                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                    ), child: Text('Okay', style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.redAccent,
                 padding: EdgeInsets.symmetric(horizontal: 110, vertical: 10),
